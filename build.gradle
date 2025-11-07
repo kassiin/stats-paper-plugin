@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id("xyz.jpenilla.run-paper") version "2.3.1"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
+
+}
+
+group = 'br.com.kassin'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "papermc-repo"
+        url = "https://repo.papermc.io/repository/maven-public/"
+    }
+}
+
+dependencies {
+    compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
+    compileOnly("org.projectlombok:lombok:1.18.42")
+    compileOnly("com.zaxxer:HikariCP:2.3.2")
+
+    annotationProcessor("org.projectlombok:lombok:1.18.42")
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.17.2'
+    implementation("com.github.ben-manes.caffeine:caffeine:3.2.3")
+    implementation 'redis.clients:jedis:5.0.0'
+}
+
+tasks {
+    shadowJar{
+        exclude 'com/zaxxer/hikari/**'
+        exclude 'javassist/**'
+        destinationDirectory = file("K:/AreaDeTrabalho/server 1.21 paper/plugins")
+    }
+    build {
+        dependsOn shadowJar
+    }
+    runServer {
+        minecraftVersion("1.21")
+    }
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+}
+

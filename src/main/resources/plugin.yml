@@ -1,0 +1,6 @@
+name: abstract-plugin
+version: '1.0-SNAPSHOT'
+main: net.kassin.abstractPlugin.AbstractPlugin
+api-version: '1.21'
+commands:
+  stats:
