@@ -1,4 +1,6 @@
-# ⛏️ abstract-plugin (Minecraft/Paper Statistics Client)
+<img width="1606" height="351" alt="image" src="https://github.com/user-attachments/assets/0b648f43-a2ac-4116-ba31-6f1c46300d81" />
+
+## ⛏️ abstract-plugin (Minecraft/Paper Statistics Client)
 
 ## Overview
 
